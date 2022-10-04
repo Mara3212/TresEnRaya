@@ -1,0 +1,80 @@
+﻿<Window x:Class="TresEnRaya.Ventanas.Empate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TresEnRaya.Ventanas"
+        mc:Ignorable="d"
+        Title="Empate" Height="325" Width="510"
+        xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown">
+    <Border>
+        <Border CornerRadius="50"
+                BorderThickness="10">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#0B0831" Offset="0"/>
+                    <GradientStop Color="#102931" Offset="0.75"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#000000" Offset="0"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Image gif:AnimationBehavior.SourceUri="/Imagenes/jete.gif"
+                       Width="450" Height="330"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="80"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0"
+                               Text="TIE"
+                               Foreground="White"
+                               FontSize="44"
+                               Margin="50,10,0,0"/>
+                    <Grid Grid.Row="2">
+                        <Button Grid.Column="0" Grid.Row="1"
+                            Name="btnJugarDeNuevo"
+                            Content="Play Again"
+                            Foreground="White"
+                            FontSize="24"
+                            Margin="0,20,305,0"
+                            Cursor="Hand"
+                            FontWeight="Medium" Click="btnJugadorUno_Click">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#102931"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#0B0831"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="150" Height="50"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Border>
+    
+</Window>
